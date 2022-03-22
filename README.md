@@ -1,1 +1,2 @@
-A simple REST API with NodeJs
+
+A simple REST API made with NodeJs
