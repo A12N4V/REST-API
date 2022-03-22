@@ -1,6 +1,6 @@
 const port = 8000; // port on which the site runs
 
-// Imoorts 
+// Imports
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -17,7 +17,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/wikiDB", {useNewUrlParser:true, useU
 const postSchema = {title:String, content:String};
 const Post = mongoose.model("Post", postSchema);
 
-// Setting up API 
+// Setting up API
 
 // Route for all the posts
 app.route("/posts")
@@ -64,9 +64,9 @@ app.route("/posts/:postTitle")
         }
       })
   })
-  
+
   .put(function(req, res) {
-    Post.update(
+    Post.updateMany(
       {title:req.params.postTitle},
       {title:req.body.title, content:req.body.content},
       {overwrite:true},
@@ -79,9 +79,9 @@ app.route("/posts/:postTitle")
       }
     )
   })
-  
+
   .patch(function(req,res) {
-    Post.update(
+    Post.updateMany(
       {title:req.params.postTitle},
       {$set:req.body},
       function(err) {
@@ -94,7 +94,7 @@ app.route("/posts/:postTitle")
       }
     )
   })
-  
+
   .delete(function(req,res) {
     Post.deleteOne(
       {title:req.params.postTitle},
@@ -110,6 +110,9 @@ app.route("/posts/:postTitle")
   });
 
 
+// Starting the server
 app.listen(port, function() {
-  console.log('[+]success-->started||port-->'+port)
+  console.log('[+]success--> started || port-->'+port)
 })
+
+
