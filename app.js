@@ -112,7 +112,7 @@ app.route("/posts/:postTitle")
 
 // Starting the server
 app.listen(port, function() {
-  console.log('[+]success--> started || port-->'+port)
+  console.log('[+]success--> started || port--> '+port)
 })
 
 
