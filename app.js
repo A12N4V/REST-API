@@ -1,1 +1,115 @@
-const port=3001;const express=require('express');const bodyParser=require('body-parser');const mongoose=require('mongoose');const app=express();app.set('view engine','ejs');app.use(bodyParser.urlencoded({extended:true}));app.use(express.static("public"));mongoose.connect("mongodb://127.0.0.1:27017/wikiDB",{useNewUrlParser:true,useUnifiedTopology:true});const articleSchema={title:String,content:String};const Article=mongoose.model("Article",articleSchema);app.route("/articles").get(function(req,res){Article.find(function(err,foundArticles){if(err){console.log("[-]err-->"+err)}else{res.send(foundArticles)}})}).post(function(req,res){const newArticle=new Article({title:req.body.title,content:req.body.content});newArticle.save(function(err){if(err){console.log("[-]err-->"+err)}else{console.log("[+]success-->made a new article")}})}).delete(function(req,res){Article.deleteMany(function(err){if(err){console.log('[-]err-->'+err)}else{console.log("[+]success-->deleted all articles")}})});app.route("/articles/:articleTitle").get(function(req,res){Article.findOne({title:req.params.articleTitle},function(err,foundArticle){if(foundArticle){res.send(foundArticle)}else{res.send("[-]err-->no articles with that title found :(")}})}).put(function(req,res){Article.update({title:req.params.articleTitle},{title:req.body.title,content:req.body.content},{overwrite:true},function(err){if(err){console.log("[-]err-->"+err)}else{res.send("[+]success-->updated article")}})}).patch(function(req,res){Article.update({title:req.params.articleTitle},{$set:req.body},function(err){if(err){console.log("[-]err-->"+err);res.send("[-]err-->"+err)}else{res.send("[+]success-->updated article")}})}).delete(function(req,res){Article.deleteOne({title:req.params.articleTitle},function(err){if(err){console.log("[-]err-->"+err);res.send("[-]err-->"+err)}else{res.send("[+]success-->deleted the corresponding article")}})});app.listen(port,function(){console.log('[+]success-->started||port-->'+port)})
+const port = 8000; // port on which the site runs
+
+// Imoorts 
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+// App configurations
+const app = express();
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static("public"));
+
+// Connecting the mongoose server
+mongoose.connect("mongodb://127.0.0.1:27017/wikiDB", {useNewUrlParser:true, useUnifiedTopology:true});
+
+// Post model
+const postSchema = {title:String, content:String};
+const Post = mongoose.model("Post", postSchema);
+
+// Setting up API 
+
+// Route for all the posts
+app.route("/posts")
+  .get(function(req,res) {
+    Post.find(function(err, foundPosts) {
+      if(err) {
+        console.log("[-]err--> " + err)
+      } else {
+        res.send(foundPosts)
+      }
+    })
+  })
+  .post(function(req, res) {
+    const newPost = new Post({ title:req.body.title, content:req.body.content });
+    newPost.save(function(err) {
+      if(err) {
+        console.log("[-]err--> " + err)
+      } else {
+        console.log("[+]success--> A new post was made")
+      }
+    })
+  })
+  .delete(function(req, res) {
+    Post.deleteMany(function(err) {
+      if(err) {
+        console.log('[-]err--> ' + err)
+      } else {
+        console.log("[+]success--> deleted all posts")
+      }
+    })
+  });
+
+
+// Route for a specific post
+app.route("/posts/:postTitle")
+  .get(function(req, res) {
+    Post.findOne(
+      {title:req.params.postTitle},
+      function(err, foundPost) {
+        if(foundPost) {
+          res.send(foundPost)
+        } else {
+          res.send("[-]err--> no posts with that title found")
+        }
+      })
+  })
+  
+  .put(function(req, res) {
+    Post.update(
+      {title:req.params.postTitle},
+      {title:req.body.title, content:req.body.content},
+      {overwrite:true},
+      function(err) {
+        if(err) {
+          console.log("[-]err--> " + err)
+        } else {
+          res.send("[+]success--> updated post")
+        }
+      }
+    )
+  })
+  
+  .patch(function(req,res) {
+    Post.update(
+      {title:req.params.postTitle},
+      {$set:req.body},
+      function(err) {
+        if(err) {
+          console.log("[-]err--> " + err);
+          res.send("[-]err--> " + err)
+        } else {
+          res.send("[+]success--> updated post")
+        }
+      }
+    )
+  })
+  
+  .delete(function(req,res) {
+    Post.deleteOne(
+      {title:req.params.postTitle},
+      function(err) {
+        if(err){
+          console.log("[-]err--> " + err);
+          res.send("[-]err--> " + err)
+        } else {
+          res.send("[+]success--> deleted the corresponding article")
+        }
+      }
+    )
+  });
+
+
+app.listen(port, function() {
+  console.log('[+]success-->started||port-->'+port)
+})
