@@ -1,2 +1,2 @@
-
-A simple REST API made with NodeJs
+# REST-API
+<hr>A simple REST API made with NodeJs<hr>
