@@ -36,4 +36,4 @@ data = {
 <br>
 
 Delete all the posts with ```DELETE``` request on ```localhost:8080/posts``` or delete a specific post with ```Delete``` request on ```localhost:8080/posts/TITLE OF POST```<br>
-Update a request with ```PUT``` or ```patch``` by sending data including a title and content that will replace the current data of the post
+Update a post with ```PUT``` or ```patch``` request by sending data including a title and content that will replace the current data of the post
