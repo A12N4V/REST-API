@@ -19,7 +19,7 @@ const Post = mongoose.model("Post", postSchema);
 
 // Opening instructions
 app.get("/",function(req, res) {
-  window.location.replace("https://github.com/A12N4V/REST-API/blob/main/README.md")
+  res.redirect('https://github.com/A12N4V/REST-API/blob/main/README.md')
 })
 
 // Setting up API
