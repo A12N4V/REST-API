@@ -15,6 +15,7 @@ First clone the project. Then, Install the required modules.
 git clone https://github.com/A12N4V/REST-API.git
 cd REST-API
 npm i
+node app.js
 ```
 
 The Api can now be accessed at ```localhost:8080/posts```
