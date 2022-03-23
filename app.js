@@ -18,7 +18,7 @@ const postSchema = {title:String, content:String};
 const Post = mongoose.model("Post", postSchema);
 
 // Opening instructions
-aap.get("/",function(req, res) {
+app.get("/",function(req, res) {
   window.location.href="https://github.com/A12N4V/REST-API/blob/main/README.md"
 })
 
