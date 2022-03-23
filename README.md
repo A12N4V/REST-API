@@ -3,7 +3,8 @@
 Made with: 
 <br><br>
 <img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge" />
-<img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express">
+<img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express">\
+
 <hr>
 
 ## How to set up the API
@@ -18,7 +19,7 @@ npm i
 
 The Api can now be accessed at ```localhost:8080/posts```
 Since it's a REST API, you can<br>
-Read all the posts with ```GET``` request on ```localhost:8080/posts``` or read a specific post with a ```GET``` request on ```localhost:8080/posts/TITLE OF POST```<br>
+Read all the posts with ```GET``` request on ```localhost:8080/posts``` or read a specific post with  ```GET``` request on ```localhost:8080/posts/TITLE OF POST```<br>
 Create a post with ```POST``` request on ```localhost:8080/posts``` with data including a title and content like this:
 ```
 data = {
