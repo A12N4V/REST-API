@@ -31,6 +31,7 @@ Create a post with ```POST``` request on ```localhost:8080/posts``` with data in
 data = {
   "title": "TITLE OF POST",
   "content": "CONTENT OF THE POST"
+}
 ```
 <br>
 
