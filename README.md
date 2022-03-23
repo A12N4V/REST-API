@@ -6,7 +6,7 @@ Made with:
 <img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express" />
 <img alt="Mongo DB" src="https://img.shields.io/badge/Mongo db-white?style=for-the-badge&logo=mongodb" />
 
-requirments:<br>
+Requirments:<br>
 Mongo DB running on the machine while the site is running
 <hr>
 
