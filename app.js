@@ -1,4 +1,4 @@
-const port = 8000; // port on which the site runs
+const port = 8080; // port on which the site runs
 
 // Imports
 const express = require('express');
@@ -19,7 +19,7 @@ const Post = mongoose.model("Post", postSchema);
 
 // Opening instructions
 app.get("/",function(req, res) {
-  window.location.href="https://github.com/A12N4V/REST-API/blob/main/README.md"
+  window.location.replace("https://github.com/A12N4V/REST-API/blob/main/README.md")
 })
 
 // Setting up API
