@@ -17,11 +17,16 @@ mongoose.connect("mongodb://127.0.0.1:27017/wikiDB", {useNewUrlParser:true, useU
 const postSchema = {title:String, content:String};
 const Post = mongoose.model("Post", postSchema);
 
+// Opening instructions
+aap.get("/",function(req, res) {
+  window.location.href="https://github.com/A12N4V/REST-API/blob/main/README.md"
+})
+
 // Setting up API
 
 // Route for all the posts
 app.route("/posts")
-  .get(function(req,res) {
+  .get(function(req, res) {
     Post.find(function(err, foundPosts) {
       if(err) {
         console.log("[-]err--> " + err)
