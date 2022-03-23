@@ -3,7 +3,7 @@
 Made with: 
 <br><br>
 <img alt="NodeJS" src="https://img.shields.io/badge/node.js-%2343853D.svg?style=for-the-badge" />
-<img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express">\
+<img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express" />
 
 <hr>
 
