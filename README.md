@@ -6,6 +6,8 @@ Made with:
 <img alt="Express" src="https://img.shields.io/badge/Express-green?style=for-the-badge&logo=express" />
 <img alt="Mongo DB" src="https://img.shields.io/badge/Mongo db-white?style=for-the-badge&logo=mongodb" />
 
+requirments:
+Mongo DB running on the machine while the site is running
 <hr>
 
 ## How to set up the API
@@ -18,6 +20,8 @@ cd REST-API
 npm i
 node app.js
 ```
+
+
 
 The Api can now be accessed at ```localhost:8080/posts```
 Since it's a REST API, you can<br>
